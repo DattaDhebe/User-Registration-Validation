@@ -67,6 +67,53 @@ namespace TestUserRegistration
             Assert.False(result);
         }
 
+        [Test]
+        public void GivenProperEmail_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Email("abc.xyz@bl.co.in");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenProperEmail_WhileRemovingOptionalPart_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Email("xyz@bl.co");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenWrongEmail_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Email("xyz@bl.co.in.fi");
+            Assert.False(result);
+        }
+
+        [Test]
+        public void GivenWrongEmail_ByRemoving_AtTheRateSign_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Email("xy.co.in.fi");
+            Assert.False(result);
+        }
+
+        [Test]
+        public void GivenWrongEmail_ByAddignDotBefore_AtTheRateSign_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Email("xy.@co.in");
+            Assert.False(result);
+        }
+
+        [Test]
+        public void GivenEmptyEmail_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Email("xy.@co.in");
+            Assert.False(result);
+        }
+
+
+
+
+
+
 
 
     }
