@@ -12,7 +12,7 @@ namespace TestUserRegistration
         UserValidation userValidation = new UserValidation();
 
         [Test]
-        public void GivenProperName_ShouldReturnTrue()
+        public void GivenProperFirstName_ShouldReturnTrue()
         {
             Boolean result = userValidation.FirstName("Datta");
             Assert.True(result);
@@ -26,7 +26,7 @@ namespace TestUserRegistration
         }
 
         [Test]
-        public void GivenNumbersInName_ShouldReturnFalse()
+        public void GivenNumbersInFirstName_ShouldReturnFalse()
         {
             Boolean result = userValidation.FirstName("Da324");
             Assert.False(result);
@@ -38,6 +38,36 @@ namespace TestUserRegistration
             Boolean result = userValidation.FirstName("");
             Assert.False(result);
         }
+
+        [Test]
+        public void GivenProperLastName_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.LastName("Dhebe");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenLastNameLessThanThreeCharacter_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.LastName("Dh");
+            Assert.False(result);
+        }
+
+        [Test]
+        public void GivenNumbersInLastName_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.LastName("Dh34");
+            Assert.False(result);
+        }
+
+        [Test]
+        public void GivenEmptyLastName_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.LastName("");
+            Assert.False(result);
+        }
+
+
 
     }
 }
