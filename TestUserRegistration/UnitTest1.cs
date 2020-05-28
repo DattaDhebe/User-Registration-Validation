@@ -154,7 +154,35 @@ namespace TestUserRegistration
         [Test]
         public void GivenExactEightCharacterInPassword_ShouldReturnTrue()
         {
-            Boolean result = userValidation.Password("gatshdeu");
+            Boolean result = userValidation.Password("gaAshdeu");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenAtLeastOneCapitalLetter_AtTheBegining_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("Aatsashdekshdu");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenAtLeastOneCapitalLetter_AtTheMiddle_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("atsashdAshdu");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenAtLeastOneCapitalLetter_AtTheEnd_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("atsashdashdU");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenMoreThanOneCapitalLetter_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("DtsasAdashdU");
             Assert.True(result);
         }
 

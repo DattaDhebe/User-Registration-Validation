@@ -8,7 +8,7 @@ namespace UserRegistration
         private static String patternFor_Name = "^[A-Z]{1}[a-z]{3,}$";
         private static String patternFor_Email = "^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)?@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$";
         private static String patternFor_Mobile = "^([0-9]{2}[ ]+)?[0-9]{10}$";
-        private static String patternFor_Password = "^[a-zA-Z0-9]{8,}$";
+        private static String patternFor_Password = "^([A-Z]{1,})*[a-zA-Z0-9]{7,}$";
 
         public Boolean FirstName(String firstName)
         {
