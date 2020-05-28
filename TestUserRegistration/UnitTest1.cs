@@ -200,5 +200,11 @@ namespace TestUserRegistration
             Assert.False(result);
         }
 
+        [Test]
+        public void GivenOneNumberInPassword_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("D@472sadashdU");
+            Assert.True(result);
+        }
     }
 }
