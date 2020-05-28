@@ -154,7 +154,7 @@ namespace TestUserRegistration
         [Test]
         public void GivenExactEightCharacterInPassword_ShouldReturnTrue()
         {
-            Boolean result = userValidation.Password("gaAshdeu");
+            Boolean result = userValidation.Password("D@Ashdeu");
             Assert.True(result);
         }
 
@@ -184,6 +184,20 @@ namespace TestUserRegistration
         {
             Boolean result = userValidation.Password("DtsasAdashdU");
             Assert.True(result);
+        }
+
+        [Test]
+        public void GivenExactlyOneSpecialCharacter_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("D@sadashdU");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenMoreThanOneSpecialCharacter_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Password("D@sadas#hdU");
+            Assert.False(result);
         }
 
     }
