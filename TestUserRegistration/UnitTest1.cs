@@ -137,5 +137,26 @@ namespace TestUserRegistration
             Assert.True(result);
         }
 
+        [Test]
+        public void GivenProperPassword_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("gatHSHD8623");
+            Assert.True(result);
+        }
+
+        [Test]
+        public void GivenLessCharacterInPassword_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Password("gatHS");
+            Assert.False(result);
+        }
+
+        [Test]
+        public void GivenExactEightCharacterInPassword_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Password("gatshdeu");
+            Assert.True(result);
+        }
+
     }
 }
