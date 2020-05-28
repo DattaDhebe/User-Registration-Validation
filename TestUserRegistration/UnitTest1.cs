@@ -109,12 +109,33 @@ namespace TestUserRegistration
             Assert.False(result);
         }
 
+        [Test]
+        public void GivenProperMobileNumber_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Mobile("87 0123456789");
+            Assert.True(result);
+        }
 
+        [Test]
+        public void GivenStringFormat_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Mobile("abcs");
+            Assert.False(result);
+        }
 
+        [Test]
+        public void GivenLessNumberOfDigit_ShouldReturnFalse()
+        {
+            Boolean result = userValidation.Mobile("5842");
+            Assert.False(result);
+        }
 
-
-
-
+        [Test]
+        public void GivenExactNumberOfDigit_ShouldReturnTrue()
+        {
+            Boolean result = userValidation.Mobile("8149277030");
+            Assert.True(result);
+        }
 
     }
 }
